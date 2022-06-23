@@ -2,7 +2,8 @@
 #Bash script that displays the content of the file /etc/passwd
 
 FILENAME="/etc/passwd"
-while IFS=: read -r username _password userid _groupid _comment homedir _cmdshell
+
+while IFS=: read -r line
 do
-  echo "$username:$userid:$homedir"
+  echo "$line" | cut -f1,3,6 -d ":"
 done < $FILENAME
