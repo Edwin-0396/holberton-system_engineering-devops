@@ -1,16 +1,7 @@
 #!/usr/bin/env bash
 #installs nginx, listens on port 80, and returns a page with a string
 apt-get update
-apt-get install -y nginx
-rm -r /var/www/example.com
-mkdir -p /var/www/example.com/html
-chown -R "$USER":"$USER" /var/www/example.com/html
-chmod -R 755 /var/www
-touch /var/www/example.com/html/index.html
-echo "Hello World" > /var/www/example.com/html/index.html
-sed -i 's/location \/ {/location ~ \/redirect_me/$ {/' /etc/nginx/sites-available/default
-sed -i 's/try_files $uri $uri\/ =404;/rewrite ^\/redirect_me\/$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;/' /etc/nginx/sites-available/default
-sed -i 's/# server_names_hash_bucket_size 64;/server_names_hash_bucket_size 64;/' /etc/nginx/nginx.conf
-sed -i 's/root \/var\/www\/html;/root \/var\/www\/example.com\/html;/' /etc/nginx/sites-available/default
-nginx -t
-sudo /etc/init.d/nginx restart
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Hello World" > /var/www/html/index.nginx-debian.html
+service nginx start
