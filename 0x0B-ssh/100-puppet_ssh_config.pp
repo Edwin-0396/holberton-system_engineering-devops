@@ -1,10 +1,10 @@
 # cat site.pp
-file { 'PasswordAuthentication':
+file_line { 'PasswordAuthentication':
     ensure => 'present',
     path   => '/etc/ssh/ssh_config',
     line   => '    PasswordAuthentication no'
 }
-file { 'ssh':
+file_line { 'ssh':
     ensure => 'present',
     path   => '/etc/ssh/ssh_config',
     line   => '    IdentityFile ~/.ssh/school'
