@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# script that transfers a file from our client to a server:
+
+args=("$@")
+
+if [ "$#" -lt 4 ]
+then
+	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+else
+	scp Stricthostkeychecking=no ${args[1]} ${args[3]}@${args[2]}:${args[4]}
+fi
