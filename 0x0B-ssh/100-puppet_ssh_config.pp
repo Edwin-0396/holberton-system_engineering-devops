@@ -1,11 +1,11 @@
 # cat site.pp
-file { 'Config id':
-    ensure => 'present',
-    path   => '/etc/ssh/ssh_config',
-    line   => '    IdentityFile ~/.ssh/school'
-}
-file { 'Config Pass':
+file { 'PasswordAuthentication':
     ensure => 'present',
     path   => '/etc/ssh/ssh_config',
     line   => '    PasswordAuthentication no'
+}
+file { 'ssh':
+    ensure => 'present',
+    path   => '/etc/ssh/ssh_config',
+    line   => '    IdentityFile ~/.ssh/school'
 }
