@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+# Prints "The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]" given a domain
 display_info ()
 {
     domain="$1"
