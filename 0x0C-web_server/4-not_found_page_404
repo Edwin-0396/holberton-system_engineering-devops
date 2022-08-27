@@ -1,16 +1,11 @@
 #!/usr/bin/env bash
-#installs Nginx and sets it so that /redirect_me redirects to another page
+# Bash script to install nginx on server
 sudo apt-get update
-sudo apt-get install -y nginx
-sudo rm /var/www/html/*
-sudo touch /var/www/html/index.html
-sudo chmod 666 /var/www/html/index.html
-echo "Hello World!" >> /var/www/html/index.html
-new_string="server_name _;\n\n\tlocation /redirect_me {\n\t\treturn 301 https://www.youtube.com/watch?v=dQw4w9WgXcQ;\n\t}"
-sudo sed -i "0,/server_name _;/{s|server_name _;|$new_string|}" /etc/nginx/sites-available/default
-sudo touch /usr/share/nginx/html/error_page.html
-sudo chmod 666 /usr/share/nginx/html/error_page.html
-echo "Ceci n'est pas une page" >> /usr/share/nginx/html/error_page.html
-new_string="server_name _;\n\n\terror_page 404 /error_page.html;\n\n\tlocation = /error_page.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}"
-sudo sed -i "0,/server_name _;/{s|server_name _;|$new_string|}" /etc/nginx/sites-available/default
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+sudo echo "Hello World" | sudo tee /var/www/html/index.nginx-debian.html
+sudo sed -i '/listen 80 default_server;/a rewrite ^/redirect_me/ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sudo echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+sudo sed -i '/listen 80 default_server;/a error_page 404 /custom_404.html;location = /custom_404.html {root /usr/share/nginx/html; internal;}' /etc/nginx/sites-available/default
+sudo sed -i "/listen 80 default_server;/a add_header X-Served-By ${HOSTNAME};" /etc/nginx/sites-available/default
 sudo service nginx restart
