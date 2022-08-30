@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
+#The MySQL dump must contain all your MySQL databases
 mysqldump -uholberton_user -p"$1" --all-databases > backup.sql
 tar -zcvf "$(date '+%d-%m-%Y').tar.gz" backup.sql
