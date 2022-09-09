@@ -1,15 +1,14 @@
 #!/usr/bin/python3
-"""script that, using this REST API, for a given employee ID, returns
-information about his/her TODO list progress."""
+"""
+script that, using this REST API, for a given employee ID, returns
+information
+"""
+import csv
+import requests
+import sys
 
 
 if __name__ == "__main__":
-    """Module to export to CSV"""
-
-    import csv
-    import requests
-    import sys
-
     USER_ID = sys.argv[1]
 
     todos = requests.get(f'https://jsonplaceholder.typicode.com/todos')

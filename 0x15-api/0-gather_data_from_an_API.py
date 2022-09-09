@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""script that, using this REST API, for a given employee ID,
-returns information about his/her TODO list progress."""
+"""
+script that, using this REST API, for a given employee ID,
+returns information
+"""
 
 
 if __name__ == "__main__":
-    """Gather data form an api"""
-
     import requests
     import sys
 
