@@ -1,10 +1,9 @@
 #!/usr/bin/python3
-"""script to export data in the JSON format."""
+'''for a given employee ID, returns JSON
+   about his/her TODO list progress.'''
 
 
-if __name__ == "__main__":
-    """script to export data in the JSON format."""
-    
+if __name__ == "__main__":    
     import json
     import requests
     import sys
