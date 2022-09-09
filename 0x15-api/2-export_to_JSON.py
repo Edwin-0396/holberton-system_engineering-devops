@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-'''for a given employee ID, returns JSON
-   about his/her TODO list progress.'''
-
+"""
+for a given employee ID, returns JSON
+about his/her TODO list progress.
+"""
 
 if __name__ == "__main__":
     import json
