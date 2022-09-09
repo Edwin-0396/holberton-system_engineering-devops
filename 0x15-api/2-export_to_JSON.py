@@ -2,8 +2,8 @@
 """script to export data in the JSON format."""
 
 if __name__ == "__main__":
+    """script to export data in the JSON format."""
     import json
-
     import requests
     import sys
 
