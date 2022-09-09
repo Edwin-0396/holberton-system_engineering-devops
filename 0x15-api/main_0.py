@@ -17,11 +17,10 @@ def user_info(id):
     with open(str(id) + '.json', 'r') as f:
         student_json = json.load(f)
 
-    student_dicts = student_json[str(id)]
-    if isinstance(student_dicts, list) and all(isinstance(item, dict) for item in student_dicts):
-        print("USER_ID's value type is a list of dicts: OK")
+    if student_json.get(str(id)) and len(student_json) == 1:
+        print("Correct USER_ID: OK")
     else:
-        print("USER_ID's value type incorrect")
+        print("Correct USER_ID: Incorrect")
 
 
 if __name__ == "__main__":
