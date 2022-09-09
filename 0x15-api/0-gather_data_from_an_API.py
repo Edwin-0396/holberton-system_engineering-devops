@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-"""script that, using this REST API, for a given employee ID, returns information about his/her TODO list progress."""
+"""script that, using this REST API, for a given employee ID,
+returns information about his/her TODO list progress."""
 
 if __name__ == "__main__":
     import requests
@@ -28,6 +29,7 @@ if __name__ == "__main__":
                 TOTAL_NUMBER_OF_TASKS += 1
 
     print(
-        f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}):")
+        f"Employee {EMPLOYEE_NAME} is done with tasks(\
+            {NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}): ")
     for title in Title:
         print(f"\t{title}")
