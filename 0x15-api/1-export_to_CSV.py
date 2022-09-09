@@ -17,7 +17,7 @@ if __name__ == "__main__":
 
     USERNAME = users_Json['name']
 
-    with open('USER_ID.csv', 'w', newline='') as csvfile:
+    with open(f'{USER_ID}.csv', 'w', newline='') as csvfile:
         for items in todos_Json:
             Uid = items['userId']
             if (Uid == int(USER_ID)):
