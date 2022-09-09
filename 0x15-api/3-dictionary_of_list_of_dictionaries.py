@@ -26,5 +26,5 @@ if __name__ == "__main__":
                 json_list.append(dictionary)
         json_dict[ID] = json_list
         json_list = []
-    with open('json_data.json', 'w') as outfile:
+    with open('todo_all_employees.json', 'w') as outfile:
         json.dump(json_dict, outfile)
