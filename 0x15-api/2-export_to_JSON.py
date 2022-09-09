@@ -11,14 +11,13 @@ if __name__ == "__main__":
 
     USER_ID = sys.argv[1]
 
-    todos = requests.get(f'https://jsonplaceholder.typicode.com/todos')
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
     users = requests.get(
-        f'https://jsonplaceholder.typicode.com/users/{USER_ID}')
+        'https://jsonplaceholder.typicode.com/users/{}'.format(USER_ID))
     users_Json = users.json()
     todos_Json = todos.json()
 
     USERNAME = users_Json['username']
-    # Data to be written
     json_list = []
     json_dict = {}
 
@@ -31,6 +30,6 @@ if __name__ == "__main__":
                           "completed": TASK_COMPLETED_STATUS,
                           "username": USERNAME}
             json_list.append(dictionary)
-            json_dict[f'{USER_ID}'] = json_list
-    with open(f'{USER_ID}.json', 'w') as outfile:
+            json_dict['{}'.format(USER_ID)] = json_list
+    with open('{}.json'.format(USER_ID), 'w') as outfile:
         json.dump(json_dict, outfile)
