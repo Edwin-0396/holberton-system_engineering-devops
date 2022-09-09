@@ -30,5 +30,5 @@ if __name__ == "__main__":
                           "username": USERNAME}
             json_list.append(dictionary)
             json_dict[f'{USER_ID}'] = json_list
-    with open('json_data.json', 'w') as outfile:
+    with open(f'{USER_ID}.json', 'w') as outfile:
         json.dump(json_dict, outfile)
