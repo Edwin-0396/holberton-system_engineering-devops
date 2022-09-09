@@ -15,8 +15,9 @@ if __name__ == "__main__":
     TOTAL_NUMBER_OF_TASKS = 0
     Title = []
 
-    todos = requests.get(f'https://jsonplaceholder.typicode.com/todos')
-    users = requests.get(f'https://jsonplaceholder.typicode.com/users/{ID}')
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
+    users = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                         .format(ID))
     todos_Json = todos.json()
     users_Json = users.json()
 
@@ -30,6 +31,7 @@ if __name__ == "__main__":
                 NUMBER_OF_DONE_TASKS += 1
             if (items['completed'] or items['completed'] is False):
                 TOTAL_NUMBER_OF_TASKS += 1
-    print(f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}): ")
+    print("Employee {} is done with tasks({}/{}): ".format(EMPLOYEE_NAME,
+          NUMBER_OF_DONE_TASKS, TOTAL_NUMBER_OF_TASKS))
     for title in Title:
-        print(f"\t {title}")
+        print("\t {}".format(title))
