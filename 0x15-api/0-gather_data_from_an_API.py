@@ -30,6 +30,6 @@ if __name__ == "__main__":
 
     print(
         f"Employee {EMPLOYEE_NAME} is done with tasks(\
-            {NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}): ")
+{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}): ")
     for title in Title:
         print(f"\t{title}")
