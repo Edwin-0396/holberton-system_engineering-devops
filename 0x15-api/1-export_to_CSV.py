@@ -15,7 +15,7 @@ if __name__ == "__main__":
     todos_Json = todos.json()
     users_Json = users.json()
 
-    USERNAME = users_Json['name']
+    USERNAME = users_Json['username']
 
     with open(f'{USER_ID}.csv', 'w', newline='') as csvfile:
         for items in todos_Json:
