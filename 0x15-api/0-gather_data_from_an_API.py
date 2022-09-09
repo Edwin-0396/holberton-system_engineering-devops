@@ -27,9 +27,8 @@ if __name__ == "__main__":
                 NUMBER_OF_DONE_TASKS += 1
             if (items['completed'] or items['completed'] is False):
                 TOTAL_NUMBER_OF_TASKS += 1
-
-    print(
-        f"Employee {EMPLOYEE_NAME} is done with tasks(\
-{NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}): ")
-    for title in Title:
-        print(f"\t{title}")
+    with open("student_output", "w") as file1:
+        # Writing data to a file
+        file1.write(f"Employee {EMPLOYEE_NAME} is done with tasks({NUMBER_OF_DONE_TASKS}/{TOTAL_NUMBER_OF_TASKS}): \n")
+        for title in Title:
+            file1.write(f"\t{title}\n")
