@@ -11,15 +11,15 @@ import sys
 if __name__ == "__main__":
     USER_ID = sys.argv[1]
 
-    todos = requests.get(f'https://jsonplaceholder.typicode.com/todos')
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
     users = requests.get(
-        f'https://jsonplaceholder.typicode.com/users/{USER_ID}')
+        'https://jsonplaceholder.typicode.com/users/{}'.format(USER_ID))
     todos_Json = todos.json()
     users_Json = users.json()
 
     USERNAME = users_Json['username']
 
-    with open(f'{USER_ID}.csv', 'w', newline='') as csvfile:
+    with open('{}.csv'.format(USER_ID), 'w', newline='') as csvfile:
         for items in todos_Json:
             Uid = items['userId']
             if (Uid == int(USER_ID)):
@@ -29,5 +29,6 @@ if __name__ == "__main__":
                     csvfile, delimiter=',', quotechar='|',
                     quoting=csv.QUOTE_MINIMAL)
                 spamwriter.writerow(
-                    [f'"{USER_ID}"', f'"{USERNAME}"',
-                     f'"{TASK_COMPLETED_STATUS}"', f'"{TASK_TITLE}"'])
+                    ['"{}"'.format(USER_ID), '"{}"'.format(USERNAME),
+                     '"{}"'.format(TASK_COMPLETED_STATUS),
+                     '"{}"'.format(TASK_TITLE)])
