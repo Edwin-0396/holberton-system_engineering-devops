@@ -10,7 +10,7 @@ if __name__ == "__main__":
 
     users = requests.get('https://jsonplaceholder.typicode.com/users')
     users_Json = users.json()
-    todos = requests.get(f'https://jsonplaceholder.typicode.com/todos')
+    todos = requests.get('https://jsonplaceholder.typicode.com/todos')
     todos_Json = todos.json()
     for items_users in users_Json:
         ID = int(items_users['id'])
